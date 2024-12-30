@@ -4,7 +4,9 @@ import com.potatosoft.life.adapters.persistence.UserRepository;
 import com.potatosoft.life.core.domain.User;
 import com.potatosoft.life.core.ports.user.*;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements CreateUserInputPort, UpdateUserInputPort, DeleteUserInputPort, GetUserOutputPort {
 
     private final UserRepository userRepository;
@@ -14,9 +16,11 @@ public class UserServiceImpl implements CreateUserInputPort, UpdateUserInputPort
     }
 
     @Override
-    public void createUser(CreaterUserRequestDto command) {
+    public CreateUserResponseDto createUser(CreateUserRequestDto command) {
         User user = new User();
         userRepository.save(user);
+
+        return new CreateUserResponseDto();
     }
 
     @Override
