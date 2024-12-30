@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS country (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    code VARCHAR(2) NOT NULL
+);
+
+INSERT INTO country(name, ddi) VALUES ('Brazil', '55');
